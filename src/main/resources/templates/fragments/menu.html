@@ -1,0 +1,76 @@
+<html lang="es" xmlns:th="www.thymeleaf.org">
+  <header th:fragment="navbar">
+<<<<<<< HEAD
+    <nav class="navbar navbar-expand-lg navbar-dark menu">
+      <div class="container-fluid">
+        <a class="navbar-brand" th:href="@{/}" id="title-nav-bar"><strong>Bancapp</strong></a>
+=======
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" th:href="@{/}" id="title-nav-bar">Bancapp</a>
+>>>>>>> 9207b3e346122fcdfbfa20625319540756c03a15
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/clientes/} " th:if="${session.usuario.rol=='ADMON'}">Clientes</a>
+            </li>
+            <li class="nav-item">
+<<<<<<< HEAD
+              <a class="nav-link" th:href="${session.usuario.rol=='CLIENTE'}?@{/movimientos/{cedula} (cedula=${session.usuario.cedula})}:@{/movimientos}" th:if="${session.usuario.rol=='ADMON'||session.usuario.rol=='CLIENTE'}">Movimientos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/cuentas/}" th:if="${session.usuario.rol=='ADMON'||session.usuario.rol=='CLIENTE'}">Cuentas</a>
+            </li>
+             <li class="nav-item">
+              <a class="nav-link" th:href="@{/admcuentas}" th:if="${session.usuario.rol=='ADMON'}">Administración de Cuentas</a>
+            </li>
+=======
+              <a class="nav-link" th:href="@{/movimientos}" th:if="${session.usuario.rol=='ADMON'}">Movimientos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/cuentas/}" th:if="${session.usuario.rol=='ADMON'}">Cuentas</a>
+            </li>
+            <li class="nav-item" th:if="${session.usuario.rol=='CLIENTE'}">
+              <a class="nav-link" th:href="@{/admcuentas}">Administración Cuenta</a>
+            </li>
+            
+>>>>>>> 9207b3e346122fcdfbfa20625319540756c03a15
+          </ul>
+          <div class="d-flex">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown" th:if="${session.usuario.cedula!=null}">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+			  <i class="fas fa-user"></i> [[${session.usuario.nombre}+${" "}+${session.usuario.apellido}]]
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" th:href="@{/login/logout}"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a></li>
+              </ul>
+            </li>
+             <li class="nav-item" th:if="${session.usuario==null}">
+              <a class="nav-link" th:href="@{/login}"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a>
+            </li>
+            </ul>
+            </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+</html>

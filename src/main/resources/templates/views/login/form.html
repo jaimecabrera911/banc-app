@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="fragments/template :: head"> </head>
+  <header th:replace="fragments/menu :: navbar"></header>
+
+  <body>
+    <div class="container-fluid" th:fragment="login">
+      <div class="card mt-5 ms-5" style="width: 40rem">
+        <div class="card-body">
+          <h5 class="card-title">Login</h5>
+          <form
+            th:object="${cliente}"
+            th:action="@{/login}"
+            method="post"
+          >
+            <!-- 2 column grid layout with text inputs for the first and last names -->
+            <!-- Text input -->
+            <div class="form-outline mb-4">
+              <label class="form-label" for="cedula">Cedula</label>
+              <input type="text" th:field="*{cedula}" required class="form-control" />
+            </div>
+            <div class="form-outline mb-4">
+              <label class="form-label" for="password">Password</label>
+              <input type="password" th:field="*{password}" required class="form-control" />
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block mb-4">
+              Ingresar
+            </button>
+            <a class="btn btn-primary btn-block mb-4" href="/"
+              >Cancelar</a
+            >
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+  <th:block th:replace="fragments/template :: scripts"> </th:block>
+</html>

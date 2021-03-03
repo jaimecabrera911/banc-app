@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="fragments/template :: head"> </head>
+  <header th:replace="fragments/menu :: navbar"></header>
+
+  <body>
+    <div class="container-fluid">
+      <div class="card mt-5 ms-5" style="width: 40rem">
+        <div class="card-body">
+          <h5 class="card-title">Formulario</h5><h6>Administración Cuentas</h6>
+          <form
+            th:object="${admCuenta}"
+            th:action="@{/admcuentas/guardar}"
+            method="post"
+          >
+            <!-- 2 column grid layout with text inputs for the first and last names -->
+            <!-- Text input -->
+           <div class="form-outline mb-4">
+              <label class="form-label" for="codigoCuenta">Código Cuenta</label>
+              <select class="form-select" th:field="*{codigoCuenta}">
+                <option value="">Seleccionar</option>
+                <option
+                  th:each="cuenta : ${cuentas}"
+                  th:value="${cuenta.codigo}"
+                  th:text="${cuenta.codigo + ' - ' + cuenta.nombreCta}"
+                ></option>
+              </select>
+            </div>
+
+            <div class="form-outline mb-4">
+              <label class="form-label" for="cedulaCliente">Cliente</label>
+              <select class="form-select" th:field="*{cedulaCliente}">
+                <option value="">Seleccionar</option>
+                <option
+                  th:each="cliente : ${clientes}"
+                  th:value="${cliente.cedula}"
+                  th:text="${cliente.cedula +' - '+cliente.nombre+ ' ' +cliente.apellido}"
+                ></option>
+              </select>
+            </div>
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-block mb-4">
+              Guardar
+            </button>
+            <a class="btn btn-primary btn-block mb-4" th:href="@{/admcuentas}"
+              >Cancelar</a
+            >
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+  <th:block th:replace="fragments/template :: scripts"> </th:block>
+</html>

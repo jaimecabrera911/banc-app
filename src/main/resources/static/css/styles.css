@@ -1,0 +1,28 @@
+<<<<<<< HEAD
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+
+
+*{
+	font-family: 'Poppins', sans-serif;
+=======
+@import url('https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap');
+
+
+*{
+	font-family: 'Yusei Magic', sans-serif;
+>>>>>>> 9207b3e346122fcdfbfa20625319540756c03a15
+	
+}
+
+#title-nav-bar{
+	color:#27ae60;
+<<<<<<< HEAD
+}
+
+.menu {
+    background-color: #30336b;
+=======
+>>>>>>> 9207b3e346122fcdfbfa20625319540756c03a15
+}

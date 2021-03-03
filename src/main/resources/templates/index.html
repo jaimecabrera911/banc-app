@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<<<<<<< HEAD
+<head th:replace="/fragments/template :: head">
+=======
+<head th:replace="fragments/template :: head">
+>>>>>>> 9207b3e346122fcdfbfa20625319540756c03a15
+
+</head>
+<header th:replace="/fragments/menu :: navbar"> </header>
+<body>
+	<h1 class="text-center mt-5 mb-5">Bienvenido a Bancapp</h1>
+	<div class="alert alert-danger alert-dismissible fade show"
+		role="alert" th:if="${error!=null}">
+		<strong th:text="${error}"></strong>
+		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+	</div>
+	<th:block th:insert="/fragments/form :: login"
+		th:if="${session.usuario.cedula==null}"></th:block>
+</body>
+<th:block th:replace="/fragments/template :: scripts">
+</th:block>
+</html>

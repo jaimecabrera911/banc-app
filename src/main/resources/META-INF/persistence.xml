@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="com_project-bank_war_0.0.1-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>com.projectbank.model.Ciudades</class>
+    <class>com.projectbank.model.Movimientos</class>
+    <class>com.projectbank.model.AdmCuentas</class>
+    <class>com.projectbank.model.Cuentas</class>
+    <class>com.projectbank.model.Clientes</class>
+    <class>com.projectbank.model.Movimiento</class>
+    <class>com.projectbank.model.Cuenta_1</class>
+    <class>com.projectbank.model.Cliente_1</class>
+    <class>com.projectbank.model.Ciudad_1</class>
+    <class>com.projectbank.model.Cliente</class>
+    <class>com.projectbank.model.AdmCuenta</class>
+    <class>com.projectbank.model.Cuenta</class>
+    <class>com.projectbank.model.Ciudade</class>
+    <class>com.projectbank.model.Ciudad</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/bancapp?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.password" value="jaca57688"/>
+    </properties>
+  </persistence-unit>
+</persistence>
