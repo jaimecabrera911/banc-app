@@ -9,8 +9,9 @@ import com.projectbank.model.Cuenta;
 
 public interface CuentaRepository extends JpaRepository<Cuenta, String> {
     
-	List<Cuenta> findByCedula(Cliente cedulaCliente);
-	List<Cuenta> findByEstado(Boolean estado);
-	Cuenta findByCodigo(String codigo);
+	public List<Cuenta> findByCedula(Cliente cedulaCliente);
+	public List<Cuenta> findByEstado(Boolean estado);
+	public Cuenta findByCodigo(String codigo);
+	
 
 }

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="fragments/template :: head"> </head>
+  <header th:replace="fragments/menu :: navbar"></header>
+
+  <body>
+    <div class="container-fluid">
+      <div class="card mt-5 ms-5" style="width: 40rem">
+        <div class="card-body">
+          <h5 class="card-title">Transacción</h5>
+          <form
+            th:object="${movimiento}"
+            th:action="@{/movimientos/guardar}"
+            method="post"
+          >
+           
+            <div class="form-outline mb-4">
+              <label class="form-label" for="cuenta">Cuenta</label>
+              <select class="form-select" th:field="*{cuenta}">
+                <option
+                  th:each="cuenta : ${cuentas}"
+                  th:value="${cuenta.codigoCuenta}"
+                  th:text="${cuenta.codigoCuenta}+' '+${cuenta.cuenta.nombreCta}"
+                ></option>
+              </select>
+            </div>
+            <div class="form-outline mb-4">
+              <label class="form-label" for="tipoMovimiento">Tipo Movimiento</label>
+              <select class="form-select" th:field="*{tipoMovimiento}">
+                <option th:value="INGRESO" th:text="Ingreso"></option>
+                <option th:value="EGRESO" th:text="Egreso"></option>
+              </select>
+            </div>
+            <!-- Text input -->
+            <div class="form-outline mb-4 col-md-4">
+              <label class="form-label" for="saldo">Saldo</label>
+              <input type="number" min="0" step="0.1" th:field="*{saldo}" required="required" class="form-control" />
+            </div>
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-block mb-4">
+              Guardar
+            </button>
+            <a class="btn btn-primary btn-block mb-4" th:href="@{/admcuentas}"
+              >Cancelar</a
+            >
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+  <th:block th:replace="fragments/template :: scripts"> </th:block>
+</html>

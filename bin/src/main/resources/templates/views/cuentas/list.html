@@ -19,19 +19,6 @@
           aria-label="Close"
         ></button>
       </div>
-      <div
-        class="alert alert-success alert-succes fade show"
-        role="alert"
-        th:if="${ok!=null}"
-      >
-        <strong th:text="${ok}"></strong>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="alert"
-          aria-label="Close"
-        ></button>
-      </div>
       <a
         class="btn btn-primary"
         th:href="@{/cuentas/form}"
@@ -59,7 +46,7 @@
                 ><i class="fas fa-file-alt"></i
               ></a>
               <a class="btn btn-warning" th:if="${rol=='ADMON'}" th:href="@{/cuentas/editar/{codigo} (codigo=${cuenta.codigo})}"><i class="fas fa-pencil-alt"></i></a>
-              <a class="btn btn-danger" th:if="${rol=='ADMON'}" th:attr="onclick=|eliminar('${cuenta.codigo}')|" ><i class="fas fa-eraser"></i></a>
+              <a class="btn btn-danger" th:if="${rol=='ADMON'}"><i class="fas fa-eraser"></i></a>
             </td>
           </tr>
         </tbody>
@@ -67,27 +54,5 @@
     </div>
     <i class="bi bi-alarm-fill"></i>
     <th:block th:replace="/fragments/template :: scripts"> </th:block>
-    <script>
-		function eliminar(codigo) {
-			console.log(codigo);
-			Swal.fire({
-				title: `¿Quieres eliminar la cuenta ${codigo}?`,
-				showDenyButton: true,
-				confirmButtonText: `Eliminar`,
-				denyButtonText: `Cancelar`,
-			}).then((result) => {
-				/* Read more about isConfirmed, isDenied below */
-				if (result.isConfirmed) {
-					window.location=`/cuentas/eliminar/${codigo}`
-          Swal.fire('Eliminado!', '', 'success')
-          setTimeout(() => {
-            console.log("Tercero eliminado")
-          }, 2000);
-				} else if (result.isDenied) {
-					Swal.fire('La operación fue cancelada', '', 'info')
-				}
-			})
-		}
-	</script>
   </body>
 </html>

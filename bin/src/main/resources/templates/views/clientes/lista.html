@@ -41,7 +41,7 @@
 					<td th:text="${cliente.telefono}"></td>
 					<td th:text="${cliente.codCiudad.nombre}"></td>
 					<td>
-						<a class="btn btn-warning" th:href="@{/clientes/editar/{cedula} (cedula=${cliente.cedula})}"><i class="fas fa-pencil-alt"></i></a>
+						<a class="btn btn-warning"><i class="fas fa-pencil-alt"></i></a>
 						<a class="btn btn-danger"><i class="fas fa-eraser" th:attr="onclick=|eliminar('${cliente.cedula}')|" ></i></a>
 					</td>
 				</tr>

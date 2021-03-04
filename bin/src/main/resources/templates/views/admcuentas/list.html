@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="/fragments/template :: head"> </head>
+  <body>
+    <header th:replace="fragments/menu :: navbar"></header>
+    <div class="container"  th:if="${session.usuario.rol=='ADMON'}">
+   		 <h1 class="text-center">Administración de Cuentas</h1>
+   		<a class="btn btn-primary"  th:href="@{/admcuentas/form}"><i class="fas fa-plus-circle"></i></a>
+       <div
+        class="alert alert-success alert-succes fade show"
+        role="alert"
+        th:if="${guardado!=null}"
+      >
+        <strong th:text="${guardado}"></strong>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+        ></button>
+      </div>
+      <table class="table table-bordered table-hover">
+        <thead class="table-dark text-center">
+          <tr>
+            <th scope="col">Código Cuenta</th>
+            <th scope="col">Tipo de cuenta</th>
+            <th scope="col">Cédula Titular</th>
+            <th scope="col">Titular</th>
+             <th scope="col">Estado de cuenta</th>
+             <th scope="col">Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="cuenta:${cuentas}">
+            <th scope="row" th:text="${cuenta.cuenta.codigo}"></th>
+            <td th:text="${cuenta.cuenta.nombreCta}"></td>
+            <td th:text="${cuenta.cedulaCliente.cedula}"></td>
+            <td th:text="${cuenta.cedulaCliente.nombre +' '+ cuenta.cedulaCliente.apellido}"></td>
+            <td th:text="${cuenta.cuenta.estado?'Activa':'Inactiva'}"></td>
+            <td>
+            	<a class="btn btn-primary" th:href="@{/movimientos/{codigo} (codigo=${cuenta.cuenta.codigo})}"><i class="fas fa-file-alt"></i></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <i class="bi bi-alarm-fill"></i>
+    <th:block th:replace="/fragments/template :: scripts"> </th:block>
+  </body>
+</html>

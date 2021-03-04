@@ -14,5 +14,7 @@ public interface CuentaService {
 	public void guardar(Cuenta cuenta);
 	
 	public List<Cuenta> listarPorCedula(Cliente cliente);
+	
+	public void eliminarPorCodigo(String codigo);
 
 }

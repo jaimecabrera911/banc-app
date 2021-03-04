@@ -13,6 +13,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.projectbank.model.Cuenta;
 import com.projectbank.service.CuentaService;
 import javax.servlet.http.HttpSession;
+import javax.transaction.Transactional;
 
 @Controller
 @RequestMapping("/cuentas")
@@ -57,5 +58,13 @@ public class CuentaController {
     	System.out.println("CUENTA"+cuenta);
         attributes.addFlashAttribute("cuenta", cuenta);
         return "redirect:/cuentas/form";
+    }
+    
+    @GetMapping("/eliminar/{codigo}")
+    @Transactional
+    public String eliminar(@PathVariable String codigo,RedirectAttributes attributes) {
+    	attributes.addFlashAttribute("ok","La cuenta ha sido eliminada satisfactoriamente");
+    	cuentaService.eliminarPorCodigo(codigo);
+    	return "redirect:/cuentas/";
     }
 }

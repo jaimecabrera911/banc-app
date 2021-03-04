@@ -1,7 +1,5 @@
 package com.projectbank.controller;
 
-
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +30,6 @@ public class ClienteController {
 	@Autowired
 	CiudadService ciudadService;
 
-	
 	@Autowired
 	AdmCuentaService admCuentaService;
 
@@ -44,6 +41,7 @@ public class ClienteController {
 
 	@GetMapping("/form")
 	public String formulario(Cliente cliente, Model model) {
+		System.out.println(cliente);
 		model.addAttribute("ciudades", ciudadService.buscarTodos());
 		return "views/clientes/form";
 	}
@@ -54,20 +52,28 @@ public class ClienteController {
 		attributes.addFlashAttribute("ok", "Cliente guardado con éxito!");
 		return "redirect:/clientes/";
 	}
-	
+
 	@GetMapping("/eliminar/{cedula}")
 	public String eliminar(@PathVariable String cedula, RedirectAttributes attributes) {
-		Cliente cliente=new Cliente();
+		Cliente cliente = new Cliente();
 		cliente.setCedula(cedula);
 		List<AdmCuenta> cuentas = admCuentaService.listaPorCedula(cliente);
-		if(!cuentas.isEmpty()) {
+		if (!cuentas.isEmpty()) {
+			attributes.addFlashAttribute("error", "El cliente tiene cuentas asociadas!");
 			return "redirect:/clientes/";
 		}
-		attributes.addFlashAttribute("error", "El cliente tiene cuentas asociadas!");
 		clienteService.eliminarPorCedula(cedula);
 		attributes.addFlashAttribute("ok", "Cliente eliminado con éxito!");
 		return "redirect:/clientes/";
-		
+
+	}
+
+	@GetMapping("/editar/{cedula}")
+	public String editar(@PathVariable String cedula, RedirectAttributes attributes) {
+		Cliente cliente = clienteService.buscarPorCedula(cedula);
+		attributes.addFlashAttribute("cliente", cliente);
+		System.out.println("CLIENTE: "+cliente);
+		return "redirect:/clientes/form";
 	}
 
 }

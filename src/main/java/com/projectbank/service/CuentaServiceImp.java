@@ -31,10 +31,13 @@ public class CuentaServiceImp implements CuentaService {
     }
 
     @Override
-
     public List<Cuenta> listarPorCedula(Cliente cliente) {
-        // TODO Auto-generated method stub
         return cuentaRepository.findByCedula(cliente);
     }
+
+	@Override
+	public void eliminarPorCodigo(String codigo) {
+		cuentaRepository.deleteById(codigo);
+	}
 
 }
