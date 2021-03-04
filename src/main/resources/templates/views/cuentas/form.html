@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<<<<<<< HEAD
 <head th:replace="fragments/template :: head">
 </head>
 
@@ -30,7 +29,7 @@
 					</div>
 					<button type="submit" class="btn btn-primary btn-block mb-4">
 						Ingresar</button>
-					<a class="btn btn-primary btn-block mb-4" href="/">Cancelar</a>
+					<a class="btn btn-primary btn-block mb-4" href="/cuentas/">Cancelar</a>
 				</form>
 			</div>
 		</div>
@@ -38,57 +37,4 @@
 </body>
 <th:block th:replace="fragments/template :: scripts">
 </th:block>
-=======
-  <head th:replace="fragments/template :: head"> </head>
-  <header th:replace="fragments/menu :: navbar"></header>
-
- <body>
-<div class="container-fluid" th:fragment="login">
-  <div class="card mt-5 ms-5" style="width: 40rem">
-    <div class="card-body">
-      <h5 class="card-title">Crear Cuenta</h5>
-      <form th:object="${cuenta}" th:action="@{/cuentas/guardar}" method="post">
-        <!-- 2 column grid layout with text inputs for the first and last names -->
-        <!-- Text input -->
-        <div class="form-outline mb-4">
-          <label class="form-label" for="codigo">Codigo</label>
-          <input
-            type="text"
-            th:field="*{codigo}"
-            required
-            class="form-control"
-          />
-        </div>
-        <div class="form-outline mb-4">
-          <label class="form-label" for="nombreCta">Nombre de Cuenta</label>
-          <input
-            type="text"
-            th:field="*{nombreCta}"
-            required
-            class="form-control"
-          />
-        </div>
-        <div class="form-check mb-4">
-          <label class="form-check-label" for="estado">Estado</label>
-          <input
-          	class="form-check-input"
-            type="checkbox"
-            checked
-            th:field="*{estado}"
-            required
-          />
-        </div>
-        
-
-        <button type="submit" class="btn btn-primary btn-block mb-4">
-          Ingresar
-        </button>
-        <a class="btn btn-primary btn-block mb-4" href="/">Cancelar</a>
-      </form>
-    </div>
-  </div>
-</div>
- </body>
-  <th:block th:replace="fragments/template :: scripts"> </th:block>
->>>>>>> 9207b3e346122fcdfbfa20625319540756c03a15
 </html>

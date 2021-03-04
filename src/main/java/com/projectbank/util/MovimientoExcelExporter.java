@@ -6,7 +6,7 @@ import java.util.List;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.poi.ss.usermodel.Cell;
+    import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFFont;
@@ -38,9 +38,10 @@ public class MovimientoExcelExporter {
 
 		createCell(row, 0, "Cuenta", style);
 		createCell(row, 1, "Cedula Titular", style);
-		createCell(row, 2, "Cedula", style);
+		createCell(row, 2, "Nombre Titular", style);
 		createCell(row, 3, "Fecha", style);
-		createCell(row, 4, "Valor", style);
+		createCell(row, 4, "Tipo Movimiento", style);
+		createCell(row, 5, "Valor", style);
 
 	}
 
@@ -72,9 +73,10 @@ public class MovimientoExcelExporter {
 			System.out.println(movimiento);
 			createCell(row, columnCount++, movimiento.getMovimientoPK().getCodigoCta(), style);
 			createCell(row, columnCount++, movimiento.getMovimientoPK().getCedulaCli(), style);
-			createCell(row, columnCount++, movimiento.getFechaMov().toString(), style);
 			createCell(row, columnCount++,
 					(movimiento.getCliente().getApellido() + " " + movimiento.getCliente().getNombre()), style);
+			createCell(row, columnCount++, movimiento.getFechaMov().toString(), style);
+			createCell(row, columnCount++, movimiento.getTipoMovimiento(), style);
 			createCell(row, columnCount++, movimiento.getSaldo().toString(), style);
 
 		}

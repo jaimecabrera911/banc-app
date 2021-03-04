@@ -1,14 +1,8 @@
 <html lang="es" xmlns:th="www.thymeleaf.org">
   <header th:fragment="navbar">
-<<<<<<< HEAD
     <nav class="navbar navbar-expand-lg navbar-dark menu">
       <div class="container-fluid">
         <a class="navbar-brand" th:href="@{/}" id="title-nav-bar"><strong>Bancapp</strong></a>
-=======
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" th:href="@{/}" id="title-nav-bar">Bancapp</a>
->>>>>>> 9207b3e346122fcdfbfa20625319540756c03a15
         <button
           class="navbar-toggler"
           type="button"
@@ -26,7 +20,6 @@
               <a class="nav-link" th:href="@{/clientes/} " th:if="${session.usuario.rol=='ADMON'}">Clientes</a>
             </li>
             <li class="nav-item">
-<<<<<<< HEAD
               <a class="nav-link" th:href="${session.usuario.rol=='CLIENTE'}?@{/movimientos/{cedula} (cedula=${session.usuario.cedula})}:@{/movimientos}" th:if="${session.usuario.rol=='ADMON'||session.usuario.rol=='CLIENTE'}">Movimientos</a>
             </li>
             <li class="nav-item">
@@ -35,17 +28,6 @@
              <li class="nav-item">
               <a class="nav-link" th:href="@{/admcuentas}" th:if="${session.usuario.rol=='ADMON'}">Administración de Cuentas</a>
             </li>
-=======
-              <a class="nav-link" th:href="@{/movimientos}" th:if="${session.usuario.rol=='ADMON'}">Movimientos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" th:href="@{/cuentas/}" th:if="${session.usuario.rol=='ADMON'}">Cuentas</a>
-            </li>
-            <li class="nav-item" th:if="${session.usuario.rol=='CLIENTE'}">
-              <a class="nav-link" th:href="@{/admcuentas}">Administración Cuenta</a>
-            </li>
-            
->>>>>>> 9207b3e346122fcdfbfa20625319540756c03a15
           </ul>
           <div class="d-flex">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">

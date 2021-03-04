@@ -17,11 +17,9 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
+
 import org.hibernate.annotations.CreationTimestamp;
-<<<<<<< HEAD
 import org.springframework.format.annotation.DateTimeFormat;
-=======
->>>>>>> 9207b3e346122fcdfbfa20625319540756c03a15
 
 
 /**
@@ -37,12 +35,8 @@ import org.springframework.format.annotation.DateTimeFormat;
     @NamedQuery(name = "Movimiento.findByCedulaCli", query = "SELECT m FROM Movimiento m WHERE m.movimientoPK.cedulaCli = :cedulaCli"),
     @NamedQuery(name = "Movimiento.findByCodigoCta", query = "SELECT m FROM Movimiento m WHERE m.movimientoPK.codigoCta = :codigoCta"),
     @NamedQuery(name = "Movimiento.findByFechaMov", query = "SELECT m FROM Movimiento m WHERE m.fechaMov = :fechaMov"),
-<<<<<<< HEAD
     @NamedQuery(name = "Movimiento.findBySaldo", query = "SELECT m FROM Movimiento m WHERE m.saldo = :saldo"),
     @NamedQuery(name = "Movimiento.sumSaldo", query = "SELECT SUM(m.saldo) FROM Movimiento m INNER JOIN Cuenta c ON m.movimientoPK.codigoCta = c.codigo  WHERE c.codigo ='12341'")})
-=======
-    @NamedQuery(name = "Movimiento.findBySaldo", query = "SELECT m FROM Movimiento m WHERE m.saldo = :saldo")})
->>>>>>> 9207b3e346122fcdfbfa20625319540756c03a15
 public class Movimiento implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -50,10 +44,7 @@ public class Movimiento implements Serializable {
     protected MovimientoPK movimientoPK;
     @Column(name = "fecha_mov")
     @CreationTimestamp
-<<<<<<< HEAD
     @DateTimeFormat()
-=======
->>>>>>> 9207b3e346122fcdfbfa20625319540756c03a15
     private Date fechaMov;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "tipoMovimiento")

@@ -61,9 +61,9 @@ public class ClienteController {
 		cliente.setCedula(cedula);
 		List<AdmCuenta> cuentas = admCuentaService.listaPorCedula(cliente);
 		if(!cuentas.isEmpty()) {
-			attributes.addFlashAttribute("error", "El cliente tiene cuentas asociadas!");
 			return "redirect:/clientes/";
 		}
+		attributes.addFlashAttribute("error", "El cliente tiene cuentas asociadas!");
 		clienteService.eliminarPorCedula(cedula);
 		attributes.addFlashAttribute("ok", "Cliente eliminado con éxito!");
 		return "redirect:/clientes/";

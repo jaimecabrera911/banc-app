@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-<<<<<<< HEAD
 
 <head th:replace="/fragments/template :: head"> </head>
 
@@ -73,63 +72,3 @@
 </body>
 
 </html>
-=======
-  <head th:replace="/fragments/template :: head"> </head>
-
-  <body>
-    <header th:replace="fragments/menu :: navbar"></header>
-
-<!--     <p th:text="${session.usuario}"></p> -->
-<!-- 	  <p th:text="${clientes}"></p> -->
-    <div class="container">
-        <h1 class="text-center">Clientes</h1>
-        <p th:text="${session.usuario}"></p>
-      <div
-        class="alert alert-success alert-succes fade show"
-        role="alert"
-        th:if="${guardado!=null}"
-      >
-        <strong th:text="${guardado}"></strong>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="alert"
-          aria-label="Close"
-        ></button>
-      </div>
-      <a class="btn btn-primary" th:href="@{/clientes/form}"
-        ><i class="fas fa-plus-circle"></i
-      ></a>
-      <table class="table table-bordered table-hover">
-        <thead class="table-dark text-center">
-          <tr>
-            <th scope="col">Cédula</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Apellido</th>
-            <th scope="col">Dirección</th>
-            <th scope="col">Teléfono</th>
-            <th scope="col">Acción</th>
-             <th scope="col">Ciudad</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr th:each="cliente:${clientes}">
-            <th scope="row" th:text="${cliente.cedula}"></th>
-            <td th:text="${cliente.nombre}"></td>
-            <td th:text="${cliente.apellido}"></td>
-            <td th:text="${cliente.direccion}"></td>
-            <td th:text="${cliente.telefono}"></td>
-          	<td th:text="${cliente.codCiudad.nombre}"></td>
-            <td>
-              <a class="btn btn-warning"><i class="fas fa-pencil-alt"></i></a>
-              <a class="btn btn-danger"><i class="fas fa-eraser"></i></a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <i class="bi bi-alarm-fill"></i>
-    <th:block th:replace="/fragments/template :: scripts"> </th:block>
-  </body>
-</html>
->>>>>>> 9207b3e346122fcdfbfa20625319540756c03a15

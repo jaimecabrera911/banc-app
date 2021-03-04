@@ -23,7 +23,6 @@ public class AdmCuentaServiceImp implements AdmCuentaService {
 
 	@Override
 	public List<AdmCuenta> listaPorCedula(Cliente cedula) {
-<<<<<<< HEAD
 		return admCuentaRepository.findByCedulaCliente(cedula);
 	}
 
@@ -33,10 +32,4 @@ public class AdmCuentaServiceImp implements AdmCuentaService {
 		
 	}
 
-=======
-		// TODO Auto-generated method stub
-		return admCuentaRepository.findByCedulaCliente(cedula);
-	}
-
->>>>>>> 9207b3e346122fcdfbfa20625319540756c03a15
 }

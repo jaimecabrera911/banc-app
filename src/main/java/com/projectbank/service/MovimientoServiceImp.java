@@ -1,9 +1,6 @@
 package com.projectbank.service;
 
-<<<<<<< HEAD
 import java.util.Date;
-=======
->>>>>>> 9207b3e346122fcdfbfa20625319540756c03a15
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,7 +45,6 @@ public class MovimientoServiceImp implements MovimientoService{
 		return movimientoRepository.count();
 	}
 
-<<<<<<< HEAD
 	@Override
 	public Double sumarSaldo(Cuenta cuenta) {
 		
@@ -79,9 +75,5 @@ public class MovimientoServiceImp implements MovimientoService{
 		
 		return movimientoRepository.findByFechaMovBetween(fechaIni, fechaFin);
 	}
-
-=======
->>>>>>> 9207b3e346122fcdfbfa20625319540756c03a15
-	
 
 }

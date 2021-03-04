@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
   <head th:replace="/fragments/template :: head"> </head>
-<<<<<<< HEAD
   <body>
     <header th:replace="fragments/menu :: navbar"></header>
     <div class="container"  th:if="${session.usuario.rol=='ADMON'}">
@@ -20,31 +19,14 @@
           aria-label="Close"
         ></button>
       </div>
-=======
-
-  <body>
-    <header th:replace="fragments/menu :: navbar"></header>
-    <div class="container">
-   		 <h1 class="text-center">Cuentas</h1>
-   		       <a class="btn btn-primary" 
-      th:href="@{/movimientos/form}" 
-      th:if="${session.usuario.rol=='CLIENTE'}"
-        ><i class="fas fa-plus-circle"></i
-      ></a>
->>>>>>> 9207b3e346122fcdfbfa20625319540756c03a15
       <table class="table table-bordered table-hover">
         <thead class="table-dark text-center">
           <tr>
             <th scope="col">Código Cuenta</th>
-<<<<<<< HEAD
             <th scope="col">Tipo de cuenta</th>
             <th scope="col">Cédula Titular</th>
             <th scope="col">Titular</th>
              <th scope="col">Estado de cuenta</th>
-=======
-            <th scope="col">Cédula</th>
-             <th scope="col">Tipo Cuenta</th>
->>>>>>> 9207b3e346122fcdfbfa20625319540756c03a15
              <th scope="col">Acción</th>
           </tr>
         </thead>
@@ -52,11 +34,8 @@
           <tr th:each="cuenta:${cuentas}">
             <th scope="row" th:text="${cuenta.cuenta.codigo}"></th>
             <td th:text="${cuenta.cuenta.nombreCta}"></td>
-<<<<<<< HEAD
             <td th:text="${cuenta.cedulaCliente.cedula}"></td>
             <td th:text="${cuenta.cedulaCliente.nombre +' '+ cuenta.cedulaCliente.apellido}"></td>
-=======
->>>>>>> 9207b3e346122fcdfbfa20625319540756c03a15
             <td th:text="${cuenta.cuenta.estado?'Activa':'Inactiva'}"></td>
             <td>
             	<a class="btn btn-primary" th:href="@{/movimientos/{codigo} (codigo=${cuenta.cuenta.codigo})}"><i class="fas fa-file-alt"></i></a>

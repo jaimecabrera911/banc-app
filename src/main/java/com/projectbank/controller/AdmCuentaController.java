@@ -23,43 +23,40 @@ import com.projectbank.service.CuentaService;
 @RequestMapping("/admcuentas")
 public class AdmCuentaController {
 
-	@Autowired
-	AdmCuentaService admCuentaService;
+    @Autowired
+    AdmCuentaService admCuentaService;
 
+    @Autowired
+    CuentaService cuentaService;
 
-	@Autowired
-	CuentaService cuentaService;
+    @Autowired
+    ClienteService clienteService;
 
-	@Autowired
-	ClienteService clienteService;
+    @GetMapping("")
+    public String listarCuentasPorCedula( Model model) {
 
-	@GetMapping("")
-	public String listarCuentasPorCedula(HttpSession session, Model model) {
+        List<AdmCuenta> listaAdmCuentas = admCuentaService.listarTodos();
+        model.addAttribute("cuentas", listaAdmCuentas);
+        return "views/admcuentas/list";
+    }
 
+    @GetMapping("/form")
+    public String formAdmCuenta(AdmCuenta admCuenta, Model model) {
+        List<Cuenta> listarCuentas = cuentaService.listarTodo();
+        List<Cliente> listarClientes = clienteService.listarTodo();
+        model.addAttribute("cuentas", listarCuentas);
+        model.addAttribute("clientes", listarClientes);
+        return "/views/admcuentas/form";
 
-		List<AdmCuenta> listaAdmCuentas = admCuentaService.listarTodos();
-		model.addAttribute("cuentas", listaAdmCuentas);
-		return "views/admcuentas/list";
-	}
+    }
 
-	@GetMapping("/form")
-	public String formAdmCuenta(AdmCuenta admCuenta, Model model) {
-		List<Cuenta> listarCuentas = cuentaService.listarTodo();
-		List<Cliente> listarClientes = clienteService.listarTodo();
-		model.addAttribute("cuentas", listarCuentas);
-		model.addAttribute("clientes", listarClientes);
-		return "/views/admcuentas/form";
+    @PostMapping("/guardar")
+    public String guardar(AdmCuenta admCuenta, RedirectAttributes attributes) {
+        admCuentaService.guardar(admCuenta);
+        System.out.println(admCuenta);
+        attributes.addFlashAttribute("guardado", "Cuenta asignada correctamente.");
+        return "redirect:/admcuentas";
 
-	}
-
-	@PostMapping("/guardar")
-	public String guardar(AdmCuenta admCuenta, RedirectAttributes attributes) {
-		admCuentaService.guardar(admCuenta);
-		System.out.println(admCuenta);
-		attributes.addFlashAttribute("guardado", "Cuenta asignada correctamente.");
-		return "redirect:/admcuentas";
-
-	}
-
+    }
 
 }

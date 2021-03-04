@@ -31,15 +31,10 @@ public class ClienteServiceImp implements ClienteService {
 		System.out.println(cliente);
 		return cliente;
 	}
-<<<<<<< HEAD
 
 	@Override
 	public void eliminarPorCedula(String cedula) {
 		clienteRepository.deleteById(cedula);
 	}
-=======
-	
-	
->>>>>>> 9207b3e346122fcdfbfa20625319540756c03a15
 
 }
